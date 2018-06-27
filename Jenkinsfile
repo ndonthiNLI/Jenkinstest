@@ -14,8 +14,6 @@ node('jnlp'){
    }    
    stage('Compile') {
       mvnHome = tool 'mvn'
-      if (isUnix()) {
-         #sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
          sh " '${mvnHome}/bin/mvn' clean compile "
       }
    }        
