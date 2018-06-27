@@ -1,6 +1,7 @@
 node('jnlp'){
    def mvnHome
    stage('Preparation') {
+      git 'https://github.com/jglick/simple-maven-project-with-tests.git'
       mvnHome = tool 'mvn'
    }
    stage('Build') {
