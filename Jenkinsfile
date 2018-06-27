@@ -11,9 +11,11 @@ node('jnlp'){
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
-   }   
+   }    
    stage('Compile') {
       mvnHome = tool 'mvn'
-      sh "mvn clean compile"
-   }
-}
+      if (isUnix()) {
+         #sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+         sh " '${mvnHome}/bin/mvn' clean compile "
+      }
+   }        
